@@ -1,9 +1,28 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
+var Lin = require('../model/db')
+var routes = require('../utils/pathRouter')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.post('/login', function (req, res) {
+  const user = req.body
+  console.log(user)
+  if (user.username == 'admin' && user.password == '123456') {
+    let token = 'ey'
+    for (let i = 1; i <= 32; i++) {
+      const ranToken = Math.floor(Math.random() * 32.0).toString(16)
+      token += ranToken
+    }
+    res.send({ code: 1, msg: '获取数据成功', token: token })
+  } else {
+    res.send({ code: 0, msg: '请检查密码是否正确' })
+  }
+})
 
-module.exports = router;
+router.get('/menus', function (req, res, next) {
+  res.send({
+    code: 1,
+    msg: '获取菜单数据成功',
+    data: routes,
+  })
+})
+module.exports = router
