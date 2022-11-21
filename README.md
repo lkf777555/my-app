@@ -1,5 +1,5 @@
 # 项目说明
 
-- Server: Node.js项目
-- Web : Vite+Vue3项目
+- Server: 后端+Node.js项目
+- Web : 前端+Vite+Vue3项目
 

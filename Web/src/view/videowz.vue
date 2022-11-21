@@ -1,7 +1,7 @@
 <template>
   <div>
     <TagViewVue />
-    home
+    videowz
   </div>
 </template>
 
