@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
 })
 
 router.get('/list', function (req, res) {
-  Lin.find().then((data) => {
+  Lin.find({}, { __v: 0, _id: 0 }).then((data) => {
     res.send({ code: 1, msg: '查询成功', data })
   })
 })
@@ -27,11 +27,28 @@ router.post('/login', function (req, res) {
   }
 })
 
-router.get('/menus', function (req, res, next) {
+router.get('/menus', function (req, res) {
   res.send({
     code: 1,
     msg: '获取数据成功',
     data: routes,
   })
+})
+
+router.post('/add', function (req, res) {
+  const user = req.body
+  Lin.create(user)
+    .then(() => {
+      res.send({
+        code: 1,
+        msg: '添加成功',
+      })
+    })
+    .catch(() => {
+      res.send({
+        code: 0,
+        msg: '添加失败',
+      })
+    })
 })
 module.exports = router

@@ -6,33 +6,33 @@ routes = {
   },
   children: [
     {
-      path: '/video',
-      name: 'video',
+      path: '/user',
+      name: 'user',
       meta: {
-        title: '视频',
+        title: '用户管理',
       },
       children: [
         {
-          path: '/videowz',
-          name: 'videowz',
+          path: '/users',
+          name: 'users',
           meta: {
-            title: '精彩剪辑',
+            title: '用户列表',
           },
         },
       ],
     },
     {
-      path: '/my',
-      name: 'my',
+      path: '/shop',
+      name: 'shop',
       meta: {
-        title: '我的',
+        title: '商品管理',
       },
       children: [
         {
-          path: '/myinfo',
-          name: 'myinfo',
+          path: '/shops',
+          name: 'shops',
           meta: {
-            title: '我的数据',
+            title: '商品列表',
           },
         },
       ],

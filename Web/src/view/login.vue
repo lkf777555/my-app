@@ -17,10 +17,12 @@
           <el-input type="password" v-model="ruleForm.password" />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="loginFrom(ruleFormRef)"
+          <el-button
+            style="width: 400px"
+            type="primary"
+            @click="loginFrom(ruleFormRef)"
             >登录</el-button
           >
-          <el-button @click="resetForm(ruleFormRef)">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -91,7 +93,7 @@ const loginFrom = async (formEl) => {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-60%, -50%);
     .form-content {
       width: 400px;
       height: 160px;

@@ -9,9 +9,11 @@ mongoose
   })
 
 const linSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-  routes: Object,
+  name: String,
+  mailbox: String,
+  Telephone: String,
+  role: String,
+  state: Boolean,
 })
 
 const Lin = mongoose.model('Lin', linSchema)

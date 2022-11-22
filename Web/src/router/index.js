@@ -19,19 +19,19 @@ const routes = [
         },
       },
       {
-        path: '/videowz',
-        name: 'videowz',
-        component: () => import('../view/videowz.vue'),
+        path: '/users',
+        name: 'users',
+        component: () => import('../view/users.vue'),
         meta: {
-          title: '精彩剪辑',
+          title: '用户列表',
         },
       },
       {
-        path: '/myinfo',
-        name: 'myinfo',
-        component: () => import('../view/myinfo.vue'),
+        path: '/shops',
+        name: 'shops',
+        component: () => import('../view/shops.vue'),
         meta: {
-          title: '我的数据',
+          title: '商品列表',
         },
       },
     ],

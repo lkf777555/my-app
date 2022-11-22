@@ -28,5 +28,6 @@ import myMain from './myMain.vue'
 }
 
 .el-main {
+  background-color: #f2f0f0;
 }
 </style>

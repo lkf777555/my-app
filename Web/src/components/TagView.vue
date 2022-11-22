@@ -1,6 +1,6 @@
 <template>
   <div class="tagview">
-    <div style="height: 20px">
+    <div style="height: 30px">
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>{{ nameArr.name1 }}</el-breadcrumb-item>
