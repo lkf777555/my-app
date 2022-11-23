@@ -6,13 +6,13 @@ var routes = require('../utils/pathRouter')
 router.get('/', function (req, res, next) {
   res.render('index', { title: '林凯丰的Express' })
 })
-
+//表格数据
 router.get('/api/list', function (req, res) {
-  Lin.find({}, { __v: 0, _id: 0 }).then((data) => {
+  Lin.find({}, { __v: 0 }).then((data) => {
     res.send({ code: 1, msg: '查询成功', data })
   })
 })
-
+//登录
 router.post('/api/login', function (req, res) {
   const user = req.body
   if (user.username == 'admin' && user.password == '123456') {
@@ -26,7 +26,7 @@ router.post('/api/login', function (req, res) {
     res.send({ code: 0, msg: '请检查密码是否正确' })
   }
 })
-
+//菜单
 router.get('/api/menus', function (req, res) {
   res.send({
     code: 1,
@@ -34,7 +34,7 @@ router.get('/api/menus', function (req, res) {
     data: routes,
   })
 })
-
+//添加用户
 router.post('/api/add', function (req, res) {
   const user = req.body
   Lin.create(user)
@@ -49,6 +49,34 @@ router.post('/api/add', function (req, res) {
         code: 0,
         msg: '添加失败',
       })
+    })
+})
+// 删除
+router.get('/api/del', function (req, res) {
+  const user = req.query
+  Lin.remove({ _id: user._id })
+    .then(() => {
+      res.send({
+        code: 1,
+        msg: '删除成功',
+      })
+    })
+    .catch(() => {
+      res.send({
+        code: 0,
+        msg: '删除失败',
+      })
+    })
+})
+// 更新
+router.post('/api/update', (req, res) => {
+  const usetState = req.body
+  Lin.updateOne({ _id: usetState._id }, { $set: usetState })
+    .then(() => {
+      res.send({ code: 1, msg: '更新成功' })
+    })
+    .catch(() => {
+      res.send({ code: 0, msg: '更新失败' })
     })
 })
 module.exports = router
