@@ -11,6 +11,8 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
     "axios": "^1.1.3",
+    "default-passive-events": "^2.0.0",
+    "echarts": "^5.4.0",
     "element-plus": "^2.2.21",
     "mpvue-calendar": "^3.0.1",
     "vue": "^3.2.41",

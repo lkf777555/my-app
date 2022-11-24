@@ -6,10 +6,31 @@ var routes = require('../utils/pathRouter')
 router.get('/', function (req, res, next) {
   res.render('index', { title: '林凯丰的Express' })
 })
-//表格数据
+//查询数据
 router.get('/api/list', function (req, res) {
+  const keyword = req.query.val
+  let reg = new RegExp(keyword, 'g')
+  Lin.find(
+    {
+      $or: [
+        { name: { $regex: reg } },
+        { Telephone: { $regex: reg } },
+        { mailbox: { $regex: reg } },
+      ],
+    },
+    { __v: 0 }
+  ).then((data) => {
+    res.send({ code: 1, msg: '获取数据成功', data })
+  })
+})
+//home数据
+router.get('/api/homelist', function (req, res) {
   Lin.find({}, { __v: 0 }).then((data) => {
-    res.send({ code: 1, msg: '查询成功', data })
+    res.send({
+      code: 1,
+      msg: '获取数据成功',
+      data: data.length,
+    })
   })
 })
 //登录

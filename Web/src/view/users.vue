@@ -169,8 +169,9 @@ const onAdd = () => {
   dialogFormVisible.value = true
 }
 //搜索
-const SearchAdd = () => {
-  console.log(SearchVal.value)
+const SearchAdd = async () => {
+  const { data: res } = await list(SearchVal.value)
+  tableData.value = res
 }
 //删除
 const handleClick = (row) => {

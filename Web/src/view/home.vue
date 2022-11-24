@@ -1,12 +1,12 @@
 <template>
   <div>
     <TagViewVue />
-    <div class="dayCard"></div>
   </div>
 </template>
 
 <script setup>
+import { homelist } from '../Api/login'
 import TagViewVue from '../components/TagView.vue'
-import { reactive, ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 </script>
 <style lang="scss" scoped></style>
